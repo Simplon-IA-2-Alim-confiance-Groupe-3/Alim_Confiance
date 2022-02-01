@@ -2,4 +2,5 @@ pyenv.cfg
 Scripts/
 Lib/
 Include/
-
+.gitignore
+__pycache__/
