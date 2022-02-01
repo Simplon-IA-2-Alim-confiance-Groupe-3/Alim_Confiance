@@ -39,17 +39,17 @@
                 {% set etablissement_longitude_latitude=ligne["longitude_latitude"] %}
                 {% set etablissement_categorie=ligne["categorie_frais"] %}
                 
-            <tr class="table-primary">
-                <td class="table-primary">{{etablissement_id}}</td>
-                <td class="table-primary">{{etablissement_nom}}</td>
-                <td class="table-primary">{{etablissement_adresse}}</td>
-                <td class="table-primary">{{etablissement_cp}}</td>
-                <td class="table-primary">{{etablissement_commune}}</td>
-                <td class="table-primary">{{etablissement_siret}}</td>
-                <td class="table-primary">{{etablissement_activite}}</td>
-                <td class="table-primary">{{etablissement_agrement}}</td>
-                <td class="table-primary">{{etablissement_longitude_latitude}}</td>
-                <td class="table-primary">{{etablissement_categorie}}</td>
+            <tr>
+                <td>{{etablissement_id}}</td>
+                <td>{{etablissement_nom}}</td>
+                <td>{{etablissement_adresse}}</td>
+                <td>{{etablissement_cp}}</td>
+                <td>{{etablissement_commune}}</td>
+                <td>{{etablissement_siret}}</td>
+                <td>{{etablissement_activite}}</td>
+                <td>{{etablissement_agrement}}</td>
+                <td>{{etablissement_longitude_latitude}}</td>
+                <td>{{etablissement_categorie}}</td>
             </tr>
             {% endfor %}
             </tbody>    
