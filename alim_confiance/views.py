@@ -9,7 +9,7 @@ views = Blueprint('views', __name__)
 def accueil():
     return render_template("accueil.html")
 
-@views.route('/listeE', methods=['GET', 'POST'])
+@views.route('/liste_E', methods=['GET', 'POST'])
 def listeEtablissement():
     etablissement_dataframe = requete_database_etablissement()
     return render_template('liste_E.html', liste_etablissement=etablissement_dataframe)
@@ -18,7 +18,7 @@ def requete_database_etablissement():
     etablissement_dataframe = pd.read_sql_table('etablissement', db.engine)
     return etablissement_dataframe
 
-@views.route('/ajoutE', methods=['GET', 'POST'])
+@views.route('/ajout_E', methods=['GET', 'POST'])
 def ajoutEtablissement():
 
     if request.method == "POST":
@@ -48,9 +48,9 @@ def ajoutEtablissement():
         try:
             db.session.add(nv_etablissement)
             db.session.commit()
-            return redirect("/listeE")
+            return redirect("/liste_E")
         except:
-            return "Problème alors que tu as voulu ajouter un établissement !"
+            return " Erreur lors de l'enregistrement"
     else :
         etablissements = Etablissement.query.order_by(Etablissement.id)
         return render_template("ajout_E.html")
@@ -58,3 +58,4 @@ def ajoutEtablissement():
 @views.route('/prediction', methods=['GET', 'POST'])
 def prediction():
     return render_template("prediction.html")
+    

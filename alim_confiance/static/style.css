@@ -1,24 +1,10 @@
 body {
-    max-width: 960px;
-    margin: 0 auto;
-    background: rgb(197, 193, 193);
-  }
-  
-h1, h2, h3, h4, h5, h6 {
-    font-family: serif;
-    color: #4B6ABE;
-    margin: 1rem 0;
-    align-items: center;
-  }
-
-table{
-    align-items: center;
-    color: #4B6ABE;
+  background-color:rgba(232, 227, 227, 1);
+  margin: 10px;
 }
-
-nav { 
-    background: #4B6ABE; 
-    display: flex; 
-    align-items: center; 
-    padding: 0 0.5rem; 
+.navbar-custom {
+  background-color: rgba(75, 106, 190, 1);
+}
+.nav-item{
+color: white;
 }
