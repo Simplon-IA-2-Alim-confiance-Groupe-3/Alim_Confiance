@@ -1,30 +1,90 @@
-{% extends "base.html" %}{% block title %}Ajouter des établissements{% endblock %} {% block content%}
+{% extends 'base.html' %}
 
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<!-- Formulaire d'ajout établissement -->
+<main>
     <div class="container">
-        <h1>On va ajouter des établissements</h1>
-        <br><br>
+        <div class="row">
+            <div class="col-4"> </div>
+            <div class="col-4 text-center mt-2">
+                <h1>Ajouter un établissement</h1>
+            <hr> 
+                <label for="myfile">Importer un csv</label>
+                <input type="file" id="myfile" name="myfile">
+            <hr>     
+            </div>
+            <div class="col-4"> </div> 
+        </div>
+
+        <div class="row">
+            <div class="col-4"> </div>
+            
+            <div class="col-4 text-center">
+                <form action="/ajout_E" method="POST">
+                    <div class="form-group">
+                        <label>Nom de l'établissement</label>
+                        <input type="text" class="form-control" id="nom_e" name="nom" placeholder="Nom de l'établissement">
+                      </div>
+                      <hr> 
         
-
-        <form action = "/ajoutE" METHOD = "POST">
-            <input type = "text" placeholder = "Nom" name = "nom">
-            <input type = "text" placeholder = "Adresse" name = "adresse">
-            <input type = "text" placeholder = "Code Postal" name = "code postal">
-            <input type = "text" placeholder = "Commune" name = "commune">
-            <input type = "text" placeholder = "Siret" name = "siret">
-            <input type = "text" placeholder = "Activité" name = "activite">
-            <input type = "text" placeholder = "Agrement" name = "agrement">
-            <input type = "text" placeholder = "Longitude, latitide" name = "longitude_latitude">
-            <input type = "text" placeholder = "Categorie" name = "categorie_frais">
-            <input type = "submit" value = "Ajouter" name = "btn btn-secondary">
-        </form>
+                      <div class="form-group">
+                        <label>Siret</label>
+                        <input type="text" class="form-control" id="siret_e" name="siret" placeholder="Siret">
+                      </div>
+                      <hr> 
         
-        <br><br>
-
+                      <div class="form-group">
+                        <label>Adresse</label>
+                        <input type="text" class="form-control" id="adresse_e" name="adresse" placeholder="Adresse">
+                      </div>
+                      <hr> 
         
+                      <div class="form-group">
+                        <label>Coordonnées GPS (latitude,longitude)</label>
+                        <input type="text" class="form-control" id="coordonnees_e" name="longitude_latitude" placeholder="Coordonnées GPS">
+                      </div>
+                      <hr> 
+        
+                      <div class="form-group">
+                        <label>Code postal</label>
+                        <input type="text" class="form-control" id="cp_e" name="code postal" placeholder="Code postal">
+                      </div>
+                      <hr> 
+        
+                      <div class="form-group">
+                        <label>Commune</label>
+                        <input type="text" class="form-control" id="commune_e" name="commune" placeholder="Commune">
+                      </div>
+                      <hr> 
+        
+                      <div class="form-group">
+                        <label>N° d'agrément</label>
+                        <input type="text" class="form-control" id="agrement_e" name="agrement" placeholder="N° d'agrément">
+                      </div>
+                      <hr> 
+        
+                      <div class="form-group">
+                        <label>Activité</label>
+                        <input type="text" class="form-control" id="activité_e" name="activite" placeholder="Activité">  
+                      </div>
+                      <hr> 
+        
+                      <div class="form-group">
+                        <label>Catégorie frais</label>
+                        <input type="text" class="form-control" id="categorie" name="categorie_frais" placeholder="Catégorie frais">  
+                      </div>
+                      <hr> 
+                      <input type = "submit" value = "Enregistrer" name = "btn btn-secondary">
+                </form>
+            </div>
+            <div class="col-4"> </div>
 
-
-
+        </div>
     </div>
-
+    
+</main>    
 
 {% endblock %}
