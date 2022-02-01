@@ -1,0 +1,61 @@
+{% extends "base.html" %}{% block title %}Liste des établissements{% endblock %} {% block content%}
+
+    <div class="container">
+        <h1>Liste des établissement</h1>
+        <br><br><br><br><br><br>
+        
+            
+        <a class="btn btn-success" href="/ajoutE" role="button">Ajouter un établissement</a>
+        
+        <br><br>
+    </div>
+
+    <div class = 'container'>
+        <table class="table table-bordered border-primary">
+            <thead>
+                <td>Id</td>
+                <td>Nom</td>
+                <td>Adresse</td>
+                <td>Code Postal</td>
+                <td>Commune</td>
+                <td>Siret</td>
+                <td>Activité</td>
+                <td>Agrement</td>
+                <td>Longitude Latitude</td>
+                <td>Categorie</td>
+            </thead>
+            <tbody>
+            {% set longueur_boucle = liste_etablissement|length %}
+            {% for a in range(0, longueur_boucle) %}
+                {% set ligne=liste_etablissement.loc[a] %}
+                {% set etablissement_id=ligne["id"] %}
+                {% set etablissement_nom=ligne["nom"] %}
+                {% set etablissement_adresse=ligne["adresse"] %}
+                {% set etablissement_cp=ligne["cp"] %}
+                {% set etablissement_commune=ligne["commune"] %}
+                {% set etablissement_siret=ligne["siret"] %}
+                {% set etablissement_activite=ligne["activite"] %}
+                {% set etablissement_agrement=ligne["agrement"] %}
+                {% set etablissement_longitude_latitude=ligne["longitude_latitude"] %}
+                {% set etablissement_categorie=ligne["categorie_frais"] %}
+                
+            <tr class="table-primary">
+                <td class="table-primary">{{etablissement_id}}</td>
+                <td class="table-primary">{{etablissement_nom}}</td>
+                <td class="table-primary">{{etablissement_adresse}}</td>
+                <td class="table-primary">{{etablissement_cp}}</td>
+                <td class="table-primary">{{etablissement_commune}}</td>
+                <td class="table-primary">{{etablissement_siret}}</td>
+                <td class="table-primary">{{etablissement_activite}}</td>
+                <td class="table-primary">{{etablissement_agrement}}</td>
+                <td class="table-primary">{{etablissement_longitude_latitude}}</td>
+                <td class="table-primary">{{etablissement_categorie}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>    
+        </table>
+    </div>
+    
+
+
+{% endblock %}

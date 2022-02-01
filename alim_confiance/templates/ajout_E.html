@@ -1,0 +1,30 @@
+{% extends "base.html" %}{% block title %}Ajouter des établissements{% endblock %} {% block content%}
+
+    <div class="container">
+        <h1>On va ajouter des établissements</h1>
+        <br><br>
+        
+
+        <form action = "/ajoutE" METHOD = "POST">
+            <input type = "text" placeholder = "Nom" name = "nom">
+            <input type = "text" placeholder = "Adresse" name = "adresse">
+            <input type = "text" placeholder = "Code Postal" name = "code postal">
+            <input type = "text" placeholder = "Commune" name = "commune">
+            <input type = "text" placeholder = "Siret" name = "siret">
+            <input type = "text" placeholder = "Activité" name = "activite">
+            <input type = "text" placeholder = "Agrement" name = "agrement">
+            <input type = "text" placeholder = "Longitude, latitide" name = "longitude_latitude">
+            <input type = "text" placeholder = "Categorie" name = "categorie_frais">
+            <input type = "submit" value = "Ajouter" name = "btn btn-secondary">
+        </form>
+        
+        <br><br>
+
+        
+
+
+
+    </div>
+
+
+{% endblock %}
