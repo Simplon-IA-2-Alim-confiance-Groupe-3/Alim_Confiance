@@ -1,2 +1,5 @@
-import_csv/
+pyenv.cfg
+Scripts/
+Lib/
+Include/
 
