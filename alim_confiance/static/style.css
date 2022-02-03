@@ -8,3 +8,10 @@ body {
 .nav-item{
 color: white;
 }
+.imageronde{
+  width : 90px; 
+  border-radius : 75px;
+}
+h1{
+  font-size: 30px;
+}
