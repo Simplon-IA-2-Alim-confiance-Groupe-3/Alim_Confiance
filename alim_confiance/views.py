@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, session, json
 from .models import Etablissement, Inspection
 from alim_confiance import db
 import pandas as pd
+from . import machine_learning
 
 views = Blueprint('views', __name__)
 
@@ -16,7 +17,7 @@ def listeEtablissement():
 
 def requete_database_etablissement():
     etablissement_dataframe = pd.read_sql_table('etablissement', db.engine)
-    return etablissement_dataframe
+    return etablissement_dataframe.head(10)
 
 @views.route('/ajout_E', methods=['GET', 'POST'])
 def ajoutEtablissement():
@@ -45,17 +46,27 @@ def ajoutEtablissement():
         categorie_frais = etablissement_categorie_frais
         )
 
-        try:
-            db.session.add(nv_etablissement)
-            db.session.commit()
-            return redirect("/liste_E")
-        except:
-            return " Erreur lors de l'enregistrement"
+        db.session.add(nv_etablissement)
+        db.session.commit()
+        result = machine_learning.my_model_execution()
+        return prediction_nouvel_etablissement(result)
+        # try:
+        #     # db.session.add(nv_etablissement)
+        #     # db.session.commit()
+        #     return render_template("prediction.html")
+        #     # return redirect("/liste_E")
+        # except:
+        #     return " Erreur lors de l'enregistrement"
     else :
-        etablissements = Etablissement.query.order_by(Etablissement.id)
+        # etablissements = Etablissement.query.order_by(Etablissement.id)
         return render_template("ajout_E.html")
+    
 
 @views.route('/prediction', methods=['GET', 'POST'])
 def prediction():
     return render_template("prediction.html")
-    
+
+def prediction_nouvel_etablissement(result):
+    result = result
+    # result = session['result']       # counterpart for session
+    return render_template("prediction.html", result = result)
